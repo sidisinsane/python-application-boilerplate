@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+argparse = "*"
+regex = "*"
+
+[dev-packages]
+black = "*"
+pdoc3 = "*"
+pylint = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+help = "pipenv run python -m my_app --help"
+start = "pipenv run python -m my_app --text '1. Check it out!'"
+lint = "pipenv run black ."
+docs = "pipenv run pdoc3  --html my_app --output-dir docs --force"
+test = "pipenv run pytest tests/"
+coverage = "pipenv run pytest --cov=my_app --cov-report html:reports/html --cov-report xml:reports/coverage.xml tests/"
+clean = "rm -rf docs && rm -rf reports"
